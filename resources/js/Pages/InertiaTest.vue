@@ -8,4 +8,9 @@ import { Link } from '@inertiajs/vue3';
 <h1>InertiaTestです</h1>
 <a href="/">aタグ経由</a><br>
 <Link href="/">Link経由</Link>
+<!-- コントローラnameを指定 -->
+ <div>
+    <Link :href="route('inertia.index')">コントローラー</Link><br>
+
+ </div>
 </template>
