@@ -13,6 +13,10 @@ Route::get('/inertia-test', function () {
 );
 Route::get('/inertia/index',[InertiaTestContller::class, 'index'])->name('inertia.index');
 // 20250311 追加 N018
+// 20250312 追加　No19 パラメータ渡し
+Route::get('/inertia/show/{id}',[InertiaTestContller::class, 'show'])->name('inertia.show');
+Route::post('/inertia',[InertiaTestContller::class, 'store'])->name('inertia.store');
+// 20250312 追加　No19 パラメータ渡し
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
