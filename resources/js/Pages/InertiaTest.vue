@@ -15,10 +15,15 @@ const form = reactive({
   title: null,
   content: null
 })
+// const submitFunction = () => {
+//   Inertia.post('/inertia', form)
+// }
 const submitFunction = () => {
-  Inertia.post('/inertia', form)
+  form.post(route('/inertia'), {
+    onSuccess: () => {},
+    onError: errors => {},
+  })
 }
-
 // add 20250312 No22 Linkコンポーネント
 
 
@@ -45,7 +50,7 @@ const submitFunction = () => {
     title: newTitle,
     content: newContent
  }"> DBテスト</Link> -->
- <form @submit.prevent="submitFunction">
+ <form @submit.prevent="submitFunction" method="post">
     <input type="text" name="title" v-model="form.title"><br>
     <input type="text" name="content" v-model="form.content">
     <button>送信</button>

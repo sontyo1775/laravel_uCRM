@@ -17,6 +17,9 @@ Route::get('/inertia/index',[InertiaTestContller::class, 'index'])->name('inerti
 Route::get('/inertia/show/{id}',[InertiaTestContller::class, 'show'])->name('inertia.show');
 Route::post('/inertia',[InertiaTestContller::class, 'store'])->name('inertia.store');
 // 20250312 追加　No19 パラメータ渡し
+// 20250313 追加　No24 form作成
+Route::get('/inertia/create',[InertiaTestContller::class, 'create'])->name('inertia.create');
+// 20250313 追加　No24 form作成
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

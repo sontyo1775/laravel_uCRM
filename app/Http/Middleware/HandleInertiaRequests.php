@@ -34,6 +34,11 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            // 20250315 add No28 フラッシュメッセージ
+            'flash' => [
+                'message' => fn() => $request->session()->get('message'),
+            ],
+            // 20250315 add No28 フラッシュメッセージ
         ];
     }
 }
