@@ -2,7 +2,6 @@
 // 20250313 追加　No24 form作成
 import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
-
 defineProps({
   errors: Object,
 })

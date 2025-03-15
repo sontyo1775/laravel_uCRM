@@ -8,7 +8,11 @@ use App\Models\InertiaTest;
 class InertiaTestContller extends Controller
 {
     public function index(){
-        return Inertia::render(component: 'Inertia/index');
+        // 202515 add TBL内容をリスト表示
+        return Inertia::render('Inertia/index',[
+            'blogs' => InertiaTest::all()
+        // 202515 add TBL内容をリスト表示
+        ]);
     }
     // 20250313 add No24 フォーム作成
     public function create(){
@@ -20,13 +24,15 @@ class InertiaTestContller extends Controller
         // dd($id);
         return Inertia::render( 'Inertia/Show',
         [
-            'id' => $id
+            'id' => $id,
+            // id を取得
+            'blog' => InertiaTest::findOrFail($id)
         ]);
     }
     public function store(Request $request){
 
         // add 20250314 No26 バリデーション追加
-        $validatedData = $request->validate([
+        $request->validate([
             'title' => ['required', 'max:20'],
             'content' => ['required']
         ]);
@@ -36,6 +42,7 @@ class InertiaTestContller extends Controller
         $inertiaTest = new InertiaTest();
         $inertiaTest->title = $request->title;
         $inertiaTest->content = $request->content;
+        $inertiaTest->save();
 
         // save後 inertia.indexに飛ばす
         return to_route('inertia.index')
@@ -45,6 +52,15 @@ class InertiaTestContller extends Controller
 
     }
     // 20250312 add No21 パラメーター、マイグレーション
+
+    public function delete($id){
+
+        $book = InertiaTest::findOrFail($id);
+        $book->delete();
+
+        return to_route('inertia.index')
+        ->with(['message' => '削除しました。']);
+    }
 
 
 }

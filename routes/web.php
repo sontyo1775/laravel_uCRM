@@ -12,14 +12,15 @@ Route::get('/inertia-test', function () {
     }
 );
 Route::get('/inertia/index',[InertiaTestContller::class, 'index'])->name('inertia.index');
-// 20250311 追加 N018
+
 // 20250312 追加　No19 パラメータ渡し
 Route::get('/inertia/show/{id}',[InertiaTestContller::class, 'show'])->name('inertia.show');
 Route::post('/inertia',[InertiaTestContller::class, 'store'])->name('inertia.store');
-// 20250312 追加　No19 パラメータ渡し
-// 20250313 追加　No24 form作成
-Route::get('/inertia/create',[InertiaTestContller::class, 'create'])->name('inertia.create');
-// 20250313 追加　No24 form作成
+Route::get('/inertia/show/{id}',[InertiaTestContller::class, 'show'])->name('inertia.show');
+Route::get('/inertia/create/',[InertiaTestContller::class, 'create'])->name('inertia.create');
+
+// 20250315 追加 No30 リスト削除
+Route::delete('/inertia/{id}',[InertiaTestContller::class, 'delete'])->name('inertia.delete');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

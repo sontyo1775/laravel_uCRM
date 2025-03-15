@@ -1,12 +1,13 @@
 <script setup>
 // add 20250312 No18
-import { Link } from '@inertiajs/vue3';
+// import { Link } from '@inertiajs/vue3';
 
 // add 20250312 No18
 // add 20250312 No22 Linkコンポーネント
 import {ref} from 'vue';
 import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
+import { Link} from '@inertiajs/inertia-vue3'
 // add 20250312 No22 Linkコンポーネント
 // add 20250312 No22 Linkコンポーネント
 // const newTitle = ref('');
