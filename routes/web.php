@@ -22,6 +22,29 @@ Route::get('/inertia/create/',[InertiaTestContller::class, 'create'])->name('ine
 // 20250315 追加 No30 リスト削除
 Route::delete('/inertia/{id}',[InertiaTestContller::class, 'delete'])->name('inertia.delete');
 
+// 20250315 add No33 コンポーネント
+Route::get('/component-test', function () {
+    return Inertia::render('ComponentTest');
+    }
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
