@@ -5,9 +5,9 @@ import InputLabel from '@/Components/InputLabel.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { useForm } from '@inertiajs/vue3';
+// import { useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
-
+import { Link, useForm, usePage } from '@inertiajs/inertia-vue3'
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
 
