@@ -9,12 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::table('inertia_tests', function (Blueprint $table) {
-            $table->renameColumn('contet', 'content');
-        });
-    }
+    // public function up(): void
+    // {
+    //     Schema::table('inertia_tests', function (Blueprint $table) {
+    //         $table->renameColumn('contet', 'content');
+    //     });
+    // }
 
     /**
      * Reverse the migrations.
