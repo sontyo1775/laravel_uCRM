@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         // add 20250316 ItemSeeder No41
         $this->call([
             UserSeeder::class,
+            // add 20250316 ItemSeeder No42 ダミーデータ
+            ItemSeeder::class,
         ]);
 
         User::factory()->create([

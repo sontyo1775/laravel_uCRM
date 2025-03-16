@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
+// 20250316 add ダミーデーター No41
+use Inertia\Inertia;
+
+use function Laravel\Prompts\select;
 
 class ItemController extends Controller
 {
@@ -13,7 +17,13 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        // 20250316 add No43 条件を絞ってItemTBLから取得
+        $items = Item::select('id','name','price','is_selling')->get();
+
+        // return Inertia::render('Items/Index');
+        return Inertia::render('Items/Index', [
+            'items' => $items,
+        ]);
     }
 
     /**
