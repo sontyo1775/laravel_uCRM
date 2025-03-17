@@ -7,7 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\InertiaTestContller;
 use App\Http\Controllers\ItemController;
 
-// 20250316 add ItemController No40
+// 20250316 add ItemController ビュー表示 No40
 Route::resource('/items',ItemController::class)
 ->middleware(['auth', 'verified']);
 

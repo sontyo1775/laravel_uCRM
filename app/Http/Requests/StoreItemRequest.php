@@ -11,7 +11,9 @@ class StoreItemRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // return false;
+        // 20250317 修正 No47 新規作成画面
+        return true;
     }
 
     /**
@@ -21,8 +23,11 @@ class StoreItemRequest extends FormRequest
      */
     public function rules(): array
     {
+        // add 20250317 No49 バリデーション追加
         return [
-            //
+            'name' => ['required', 'max:50'],
+            'memo' => ['required', 'max:255'],
+            'price' => ['required', 'numeric'],
         ];
     }
 }
