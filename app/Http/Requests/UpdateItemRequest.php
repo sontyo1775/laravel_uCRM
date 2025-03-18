@@ -11,7 +11,9 @@ class UpdateItemRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // 20250319 add Update機能追加
+        // true 出ないと機能しない
+        return true;
     }
 
     /**
@@ -21,8 +23,12 @@ class UpdateItemRequest extends FormRequest
      */
     public function rules(): array
     {
+        // add 20250319 No55 バリデーション追加
         return [
-            //
+            'name' => ['required', 'max:50'],
+            'memo' => ['required', 'max:255'],
+            'price' => ['required', 'numeric'],
+            'is_selling' => ['required', 'boolean']
         ];
     }
 }

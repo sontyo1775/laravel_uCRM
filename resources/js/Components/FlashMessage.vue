@@ -4,4 +4,8 @@
     <div v-if="$page.props.flash.status === 'succcess'" class="bg-blue-300 text-white p-4">
         {{ $page.props.flash.message }}
     </div>
+    <!-- 削除処理対応 -->
+    <div v-if="$page.props.flash.status === 'danger'" class="bg-red-300 text-white p-4">
+        {{ $page.props.flash.message }}
+    </div>
 </template>
