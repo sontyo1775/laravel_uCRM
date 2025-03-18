@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             // $table->id();
             // $table->timestamps();
+            // 20250319 add No51 ダミーデーター1000件投入
             $table->id();
             $table->string('name');
             $table->string('kana');
