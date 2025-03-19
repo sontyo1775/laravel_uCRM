@@ -6,9 +6,14 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\InertiaTestContller;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CustomerController;
+use App\Models\Customer;
 
 // 20250316 add ItemController ビュー表示 No40
 Route::resource('/items',ItemController::class)
+->middleware(['auth', 'verified']);
+// 20250320 add CustomerController ビュー表示 No59
+Route::resource('/customers',CustomerController::class)
 ->middleware(['auth', 'verified']);
 
 // 20250311 追加 N018

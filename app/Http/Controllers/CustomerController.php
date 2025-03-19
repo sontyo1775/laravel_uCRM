@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Inertia\Controller;
+
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use Inertia\Inertia;
 
 class CustomerController extends Controller
 {
@@ -13,7 +16,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Customers/Index', [
+            // 'customers' => Customer::select('id', 'name', 'kana', 'tel')->get(),
+            'customers' => Customer::select('id', 'name', 'kana', 'tel')->paginate(50),
+        ]);
     }
 
     /**
