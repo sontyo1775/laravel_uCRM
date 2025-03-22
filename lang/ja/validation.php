@@ -159,6 +159,14 @@ return [
         'name' => '名',
         'memo' => 'メモモモモモ',
         'price' => '料金',
+        // 20250321 add Customers新規登録 No66
+        'kana' => 'カナ',
+        'tel' => '電話番号',
+        'email' => 'メールアドレス',
+        'postcode' => '郵便番号',
+        'address' => '住所',
+        'birthday' => '誕生日',
+        'gender' => '性別'
     ],
 
 ];

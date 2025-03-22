@@ -9,6 +9,10 @@ class Customer extends Model
 {
     /** @use HasFactory<\Database\Factories\CustomerFactory> */
     use HasFactory;
+    // 20250321 add Customers新規登録 No66
+    protected $fillable = ['name','kana','tel','email','postcode','address', 'birthday','gender', 'memo'];
+
+
     // 20250321 add 検索機能追加 No63
     public function scopeSearchCustomers($query, $input = null)
     {

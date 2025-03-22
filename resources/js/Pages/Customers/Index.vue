@@ -13,9 +13,11 @@ import { ref } from 'vue'
 
 defineProps({
     // リレーションだとObjectでしかできない
-    customers: Object,
+    customers: Array,
+    // items: Array
 });
 
+console.log(FlashMessage);
 const search = ref('');
 // ref の値を取得するには .valueが必要、検索だからget
 const searchCustomers = () => {
