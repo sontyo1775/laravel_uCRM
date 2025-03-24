@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+// 20250325 add No71 購入画面作成
 use App\Models\Purchase;
+use App\Models\Customer;
+use App\Models\Item;
+
 use App\Http\Requests\StorePurchaseRequest;
 use App\Http\Requests\UpdatePurchaseRequest;
+use Inertia\Inertia;
 
 class PurchaseController extends Controller
 {
@@ -21,7 +26,15 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        //
+        $customers = Customer::select('id', 'name', 'kana')->get();
+        $items = Item::select('id', 'name', 'price')
+        ->where('is_selling', true) // 販売中だけを取得
+        ->get();
+
+        return Inertia::render('Purchases/Create', [
+            'customers' => $customers,
+            'items' => $items
+        ]);
     }
 
     /**

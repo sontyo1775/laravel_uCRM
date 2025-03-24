@@ -40,6 +40,13 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Dashboard
                                 </NavLink>
+                                <!-- 20250325 add No71 購入画面 -->
+                                <NavLink
+                                    :href="route('purchases.create')"
+                                    :active="route().current('purchases.create')"
+                                >
+                                    購入画面
+                                </NavLink>
                                 <!-- 20250316 add No41 ダミーデータ -->
                                 <NavLink
                                     :href="route('items.index')"
@@ -159,6 +166,13 @@ const showingNavigationDropdown = ref(false);
                             :active="route().current('dashboard')"
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                        <!-- 20250325 add No71 購入画面 -->
+                        <ResponsiveNavLink
+                            :href="route('purchases.create')"
+                            :active="route().current('purchases.create')"
+                        >
+                            購入画面
                         </ResponsiveNavLink>
                         <!-- 20250316 add No41 ダミーデータ -->
                         <ResponsiveNavLink

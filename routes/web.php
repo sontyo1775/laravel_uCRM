@@ -8,12 +8,16 @@ use App\Http\Controllers\InertiaTestContller;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CustomerController;
 use App\Models\Customer;
+use App\Http\Controllers\PurchaseController;
 
 // 20250316 add ItemController ビュー表示 No40
 Route::resource('/items',ItemController::class)
 ->middleware(['auth', 'verified']);
 // 20250320 add CustomerController ビュー表示 No59
 Route::resource('/customers',CustomerController::class)
+->middleware(['auth', 'verified']);
+// 20250325 add PurchaseController ビュー表示 No71
+Route::resource('/purchases',PurchaseController::class)
 ->middleware(['auth', 'verified']);
 
 // 20250311 追加 N018
@@ -37,6 +41,7 @@ Route::get('/component-test', function () {
     return Inertia::render('ComponentTest');
     }
 );
+
 
 
 
