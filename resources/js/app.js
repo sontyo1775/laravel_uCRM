@@ -1,5 +1,10 @@
-import '../css/app.css';
+import './micromodal';
 import './bootstrap';
+
+import '../css/app.css';
+// マイクロモーダル追加
+import '../css/micromodal.css';
+
 
 // import { createInertiaApp } from '@inertiajs/vue3';
 import { createInertiaApp} from '@inertiajs/inertia-vue3'

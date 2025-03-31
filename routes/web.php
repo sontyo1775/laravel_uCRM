@@ -9,6 +9,14 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CustomerController;
 use App\Models\Customer;
 use App\Http\Controllers\PurchaseController;
+use Illuminate\Http\Request;
+
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 // 20250316 add ItemController ビュー表示 No40
 Route::resource('/items',ItemController::class)

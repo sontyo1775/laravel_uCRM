@@ -10,6 +10,8 @@ use App\Models\Item;
 use App\Http\Requests\StorePurchaseRequest;
 use App\Http\Requests\UpdatePurchaseRequest;
 use Inertia\Inertia;
+// try catch で追加
+use Illuminate\Support\Facades\DB;
 
 class PurchaseController extends Controller
 {
@@ -26,13 +28,13 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        $customers = Customer::select('id', 'name', 'kana')->get();
+        // $customers = Customer::select('id', 'name', 'kana')->get();
         $items = Item::select('id', 'name', 'price')
         ->where('is_selling', true) // 販売中だけを取得
         ->get();
 
         return Inertia::render('Purchases/Create', [
-            'customers' => $customers,
+            // 'customers' => $customers,
             'items' => $items
         ]);
     }
@@ -42,7 +44,27 @@ class PurchaseController extends Controller
      */
     public function store(StorePurchaseRequest $request)
     {
-        //
+        // dd($request);
+        DB::beginTransaction();
+        try{
+            $purchase = Purchase::create([
+                'customer_id' => $request->customer_id,
+                'status' => $request->status,
+            ]);
+    // リクエストに含まれている「アイテム」を1つずつ取り出して処理
+            foreach($request->items as $item){
+                $purchase->items()->attach($purchase->id, [
+                    'item_id' => $item['id'],
+                    'quantity' => $item['quantity'],
+                ]);
+            }
+
+        }catch(\Exception $e){
+            DB::rollBack();
+            return DB::rollBack();
+        }
+
+        return to_route('dashboard');
     }
 
     /**
